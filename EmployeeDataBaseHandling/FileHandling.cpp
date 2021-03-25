@@ -26,7 +26,8 @@ void File_handling::open_file()
 		}
 		else
 		{
-			string input, firstname, lastname, mob_num, designation, salary, data;
+			double salary;
+			string input, firstname, lastname, mob_num, designation, data;
 			int age;
 			unsigned long int emp_id;
 			char gender;
@@ -54,35 +55,37 @@ void File_handling::open_file()
 
 					getline(lineStream, mob_num, '|');
 
-					getline(lineStream, salary, '|');
+					getline(lineStream, input, '|');
+					stringstream convertor3(input);
+					convertor3 >> salary;
 
 					getline(lineStream, designation, '\n');
 
 					if (designation == "Human Resource")
 					{
 						EmployeeCreatorFactory* employee = new Create_Human_Resource();
-						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age);
+						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age,salary);
 						object_.employee_list.insert(pair<int, Employee*>(emp_id, emp));
 
 					}
 					else if (designation == "Team Lead")
 					{
 						EmployeeCreatorFactory* employee = new Create_Team_Lead();
-						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age);
+						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age, salary);
 						object_.employee_list.insert(pair<int, Employee*>(emp_id, emp));
 
 					}
 					else if (designation == "Quality Analyst")
 					{
 						EmployeeCreatorFactory* employee = new Create_Quality_Analyst();
-						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age);
+						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age, salary);
 						object_.employee_list.insert(pair<int, Employee*>(emp_id, emp));
 
 					}
 					else if (designation == "Developer")
 					{
 						EmployeeCreatorFactory* employee = new Create_Developer();
-						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age);
+						Employee* emp = employee->generate(emp_id, firstname, lastname, gender, mob_num, age, salary);
 						object_.employee_list.insert(pair<int, Employee*>(emp_id, emp));
 					}
 					object_.set_last_emp_id(emp_id + 1);

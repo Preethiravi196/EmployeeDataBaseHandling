@@ -84,10 +84,10 @@ string Employee::get_designation()
 	return designation;
 }
 
-Human_resource::Human_resource(int id, string firstname, string lastname, char gender, string mob_num, int age)
+Human_resource::Human_resource(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary)
 {
 	this->set_designation("Human Resource");
-	this->set_salary(50000.0);
+	this->set_salary(salary);
 	this->set_gender(gender);
 	this->set_age(age);
 	this->set_last_name(lastname);
@@ -102,10 +102,10 @@ void Human_resource::increment_salary()
 	Employee::set_salary(new_salary);
 }
 
-Team_Lead::Team_Lead(int id, string firstname, string lastname, char gender, string mob_num, int age)
+Team_Lead::Team_Lead(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary)
 {
 	this->set_designation("Team Lead");
-	this->set_salary(100000.0);
+	this->set_salary(salary);
 	this->set_gender(gender);
 	this->set_age(age);
 	this->set_first_name(firstname);
@@ -116,14 +116,14 @@ Team_Lead::Team_Lead(int id, string firstname, string lastname, char gender, str
 
 void Team_Lead::increment_salary()
 {
-	double new_salary = Employee::get_salary() + (Employee::get_salary() * 0.3);
+	double new_salary = Employee::get_salary() + (Employee::get_salary() * 0.3 );
 	Employee::set_salary(new_salary);
 }
 
-Quality_Analyst::Quality_Analyst(int id, string firstname, string lastname, char gender, string mob_num, int age)
+Quality_Analyst::Quality_Analyst(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary )
 {
 	this->set_designation("Quality Analyst");
-	this->set_salary(30000.0);
+	this->set_salary(salary);
 	this->set_gender(gender);
 	this->set_age(age);
 	this->set_first_name(firstname);
@@ -138,10 +138,10 @@ void Quality_Analyst::increment_salary()
 	Employee::set_salary(new_salary);
 }
 
-Developer::Developer(int id, string firstname, string lastname, char gender, string mob_num, int age)
+Developer::Developer(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary)
 {
 	this->set_designation("Developer");
-	this->set_salary(40000.0);
+	this->set_salary(salary);
 	this->set_gender(gender);
 	this->set_last_name(lastname);
 	this->set_age(age);

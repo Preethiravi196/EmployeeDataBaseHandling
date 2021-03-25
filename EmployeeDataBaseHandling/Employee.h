@@ -52,7 +52,7 @@ class Human_resource : public Employee
 public:
 	Human_resource() {}
 
-	Human_resource(int id, string firstname, string lastname, char gender, string mob_num, int age);
+	Human_resource(int id, string firstname, string lastname, char gender, string mob_num, int age , double salary);
 
 	void increment_salary()  override;
 
@@ -62,7 +62,7 @@ class Team_Lead : public Employee
 public:
 	Team_Lead() {}
 
-	Team_Lead(int id, string firstname, string lastname, char gender, string mob_num, int age);
+	Team_Lead(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary);
 
 	void increment_salary() override;
 
@@ -73,7 +73,7 @@ class Quality_Analyst : public Employee
 public:
 	Quality_Analyst() {}
 
-	Quality_Analyst(int id, string firstname, string lastname, char gender, string mob_num, int age);
+	Quality_Analyst(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary);
 
 	void increment_salary() override;
 
@@ -84,7 +84,7 @@ class Developer : public Employee
 public:
 	Developer() {}
 
-	Developer(int id, string firstname, string lastname, char gender, string mob_num, int age);
+	Developer(int id, string firstname, string lastname, char gender, string mob_num, int age, double salary);
 
 	void increment_salary() override;
 

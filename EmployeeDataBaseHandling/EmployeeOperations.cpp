@@ -15,6 +15,7 @@ int Employee_Operations::Add_Employee()
 {
 	string firstname, lastname, mob_num;
 	int age, option, return_val = 0;
+	double salary;
 	char gender;
 
 	cout << "Enter the first name: ";
@@ -51,7 +52,7 @@ int Employee_Operations::Add_Employee()
 	case 1:
 	{
 		EmployeeCreatorFactory* employee = new Create_Team_Lead();
-		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age);
+		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age,100000.0);
 		employee_list.insert(pair<int, Employee*>(last_emp_id++, emp));
 		return_val = 1;
 		break;
@@ -59,7 +60,7 @@ int Employee_Operations::Add_Employee()
 	case 2:
 	{
 		EmployeeCreatorFactory* employee = new Create_Human_Resource();
-		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age);
+		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age,50000.0);
 		employee_list.insert(pair<int, Employee*>(last_emp_id++, emp));
 		return_val = 1;
 		break;
@@ -67,7 +68,7 @@ int Employee_Operations::Add_Employee()
 	case 3:
 	{
 		EmployeeCreatorFactory* employee = new Create_Developer();
-		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age);
+		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age,40000.0);
 		employee_list.insert(pair<int, Employee*>(last_emp_id++, emp));
 		return_val = 1;
 		break;
@@ -75,7 +76,7 @@ int Employee_Operations::Add_Employee()
 	case 4:
 	{
 		EmployeeCreatorFactory* employee = new Create_Quality_Analyst();
-		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age);
+		Employee* emp = employee->generate(last_emp_id, firstname, lastname, gender, mob_num, age,30000.0);
 		employee_list.insert(pair<int, Employee*>(last_emp_id++, emp));
 		return_val = 1;
 		break;
