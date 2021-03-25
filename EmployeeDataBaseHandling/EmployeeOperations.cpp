@@ -406,7 +406,7 @@ void Employee_Operations::Search_Employee()
 	}
 	else
 	{
-		cout << "No data found based on query!!\n";
+		cout << "\nNo data found based on the query!!\n";
 	}
 }
 
