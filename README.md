@@ -6,9 +6,9 @@ Operations:
 
 Users can perform the following operations,
 
-Add a new employee for the required designation.
-Delete an employee using there employee id.
-Search for employees by using any number of queries.
-Display all the employee records.
-Store the employee database in file.
-Modify the data of a particular employee.
+  Add a new employee for the required designation.
+  Delete an employee using there employee id.
+  Search for employees by using any number of queries.
+  Display all the employee records.
+  Store the employee database in file.
+  Modify the data of a particular employee.
