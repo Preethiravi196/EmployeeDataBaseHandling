@@ -285,7 +285,7 @@ int Employee_Operations::Modify_employee_detail()
 
 void Employee_Operations::Search_Employee()
 {
-	EmployeeSearchHandler* SearchHandlerObject = new EmployeeSearchHandler(employee_list);
+	EmployeeSearchHandler SearchHandlerObject(employee_list);
 
 	map<int, Employee*> resultant_search_map_1, resultant_search_map_2;
 
@@ -310,7 +310,7 @@ void Employee_Operations::Search_Employee()
 		if (option == 4)
 		{
 			char gender = get_char_input("Gender");
-			SearchHandlerObject->SearchOnCharInput(gender, "gender");
+			SearchHandlerObject.SearchOnCharInput(gender, "gender");
 		}
 		else if (option == 2 || option == 3 || option == 6 || option == 7)
 		{
@@ -320,25 +320,25 @@ void Employee_Operations::Search_Employee()
 			{
 				operation_type = get_string_operation_type();
 				string firstname = get_string_input("First Name");
-				SearchHandlerObject->SearchOnStringInput(firstname, operation_type, "firstname");
+				SearchHandlerObject.SearchOnStringInput(firstname, operation_type, "firstname");
 			}
 			else if (option == 3)
 			{
 				operation_type = get_string_operation_type();
 				string lastname = get_string_input("Last Name");
-				SearchHandlerObject->SearchOnStringInput(lastname, operation_type, "lastname");
+				SearchHandlerObject.SearchOnStringInput(lastname, operation_type, "lastname");
 			}
 			else if (option == 6)
 			{
 				operation_type = get_string_operation_type();
 				string mobile_number = get_string_input("Mobile Number");
-				SearchHandlerObject->SearchOnStringInput(mobile_number, operation_type, "mobilenumber");
+				SearchHandlerObject.SearchOnStringInput(mobile_number, operation_type, "mobilenumber");
 			}
 			else if (option == 7)
 			{
 				operation_type = get_string_operation_type();
 				string designation = get_string_input("Designation");
-				SearchHandlerObject->SearchOnStringInput(designation, operation_type, "designation");
+				SearchHandlerObject.SearchOnStringInput(designation, operation_type, "designation");
 			}
 		}
 		else if (option == 1 || option == 5 || option == 8)
@@ -349,19 +349,19 @@ void Employee_Operations::Search_Employee()
 			{
 				operation_type = get_numerical_operation_type();
 				int emp_id = get_int_input("Employee Id");
-				SearchHandlerObject->SearchOnNumericInput(emp_id, operation_type, "employeeid");
+				SearchHandlerObject.SearchOnNumericInput(emp_id, operation_type, "employeeid");
 			}
 			else if (option == 5)
 			{
 				operation_type = get_numerical_operation_type();
 				int age = get_int_input("Age");
-				SearchHandlerObject->SearchOnNumericInput(age, operation_type, "age");
+				SearchHandlerObject.SearchOnNumericInput(age, operation_type, "age");
 			}
 			else if (option == 8)
 			{
 				operation_type = get_numerical_operation_type();
 				double salary = get_double_input("Salary");
-				SearchHandlerObject->SearchOnNumericInput(salary, operation_type, "salary");
+				SearchHandlerObject.SearchOnNumericInput(salary, operation_type, "salary");
 			}
 		}
 		else
@@ -369,17 +369,17 @@ void Employee_Operations::Search_Employee()
 			cout << "Invalid option!!\n";
 		}
 
-		resultant_search_map_1 = SearchHandlerObject->get_resultant_matrix();
+		resultant_search_map_1 = SearchHandlerObject.get_resultant_matrix();
 
 		if (ch == 'Y' || ch == 'y')
 		{
 			if (operation == 1)
 			{
-				resultant_search_map_2 = SearchHandlerObject->ApplyUnionOperation(resultant_search_map_1, resultant_search_map_2);
+				resultant_search_map_2 = SearchHandlerObject.ApplyUnionOperation(resultant_search_map_1, resultant_search_map_2);
 			}
 			else
 			{
-				resultant_search_map_2 = SearchHandlerObject->ApplyIntersectionOperation(resultant_search_map_1, resultant_search_map_2);
+				resultant_search_map_2 = SearchHandlerObject.ApplyIntersectionOperation(resultant_search_map_1, resultant_search_map_2);
 			}
 		}
 		else
@@ -403,6 +403,10 @@ void Employee_Operations::Search_Employee()
 			cout << itr->first << " | " << itr->second->get_first_name() << " | " << itr->second->get_last_name() << " | " << itr->second->get_gender() << " | " << itr->second->get_age() << " | " << itr->second->get_mobile_number() << " | " << itr->second->get_salary() << " | " << itr->second->get_designation() << endl;
 
 		}
+	}
+	else
+	{
+		cout << "No data found based on query!!\n";
 	}
 }
 
